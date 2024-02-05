@@ -12,6 +12,10 @@ public class Main {
 
         String[] opciones = {"piedra", "papel", "tijera"};
 
+        int victorias = 0;
+        int derrotas = 0;
+        int empates = 0;
+
         while (true) {
             System.out.println("Elige: piedra, papel o tijera (o 'salir' para terminar): ");
             String eleccionJugador = scanner.nextLine().toLowerCase();
@@ -33,15 +37,22 @@ public class Main {
 
             if (eleccionJugador.equals(eleccionComputadora)) {
                 System.out.println("¡Empate!");
+                empates++;
             } else if ((eleccionJugador.equals("piedra") && eleccionComputadora.equals("tijera")) ||
                     (eleccionJugador.equals("papel") && eleccionComputadora.equals("piedra")) ||
                     (eleccionJugador.equals("tijera") && eleccionComputadora.equals("papel"))) {
                 System.out.println("¡Ganaste!");
+                victorias++;
             } else {
                 System.out.println("¡Perdiste!");
+                derrotas++;
             }
         }
 
+        System.out.println("Resultados: ");
+        System.out.println("Victorias: "+victorias);
+        System.out.println("Derrotas: " +derrotas);
+        System.out.println("Empates; " +empates);
         scanner.close();
     }
 }
